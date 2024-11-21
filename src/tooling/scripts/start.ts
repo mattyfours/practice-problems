@@ -1,6 +1,8 @@
 import dotenv from 'dotenv'
 import minimist from 'minimist'
-import { spawn } from 'child_process'
+import { spawnJestCommand } from '../lib/spawnJestCommand'
+import { checkAndBuildProblemFile } from '../lib/checkAndBuildProblemFile'
+import path from 'path'
 
 dotenv.config()
 
@@ -12,8 +14,12 @@ dotenv.config()
       throw new Error('Problem number is required: -p <problem number>')
     }
 
-    const problemFilePath = `./problems/problem-${problemNumber}/problem-${problemNumber}.js`
-    const testExecCommand = `yarn jest src/problems/problem-${problemNumber}/problem-${problemNumber}.test.ts`
+    const problemFilePath = path.resolve(
+      process.cwd(),
+      `dist/problems/problem-${problemNumber}/problem-${problemNumber}.js`
+    )
+
+    await checkAndBuildProblemFile(problemNumber, true)
 
     const problemModule = await import(problemFilePath)
     if (typeof problemModule.default?.default !== 'function') {
@@ -22,18 +28,10 @@ dotenv.config()
 
     await problemModule.default?.default()
 
-    await new Promise((resolve, reject) => {
-      spawn('yarn', ['jest', '--color', testExecCommand], {
-        stdio: 'inherit',
-        shell: true
-      }).on('close', (code) => {
-        if (code !== 0) {
-          reject(new Error(`Test command exited with code ${code ?? 'unknown'}`))
-          return
-        }
-        resolve(true)
-      })
-    })
+    const runTest: boolean = (typeof args.t !== 'undefined')
+    if (runTest) {
+      await spawnJestCommand(problemNumber)
+    }
   } catch (error) {
     console.error(error)
   } finally {

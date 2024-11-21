@@ -1,21 +1,24 @@
 import esbuild from 'esbuild'
 import { glob } from 'glob'
 
-const entryPoints = [
-  ...(glob.sync('src/problems/**/*.ts') || [])
-]
+const filteredEntryPoints = [
+  ...(glob.sync('src/tooling/**/*.ts') || []),
+  ...(glob.sync('src/problems/**/*.{ts,js}') || [])
+].filter((entry) => !entry.includes('.test.'))
 
 esbuild.build({
-  entryPoints: [...entryPoints, 'src/index.ts'],
+  entryPoints: filteredEntryPoints,
   bundle: true,
   outdir: 'dist',
+  outbase: 'src',
   platform: 'node',
   target: 'node14',
   external: ['express'],
+  entryNames: '[dir]/[name]',
   format: 'cjs'
 })
-  .then((e) => {
-    console.log('Build Complete')
+  .then(() => {
+    console.log('---')
   })
   .catch((err) => {
     console.error('Build Error:', err)

@@ -1,3 +1,6 @@
+src/problems/problem-*/problem-*.ts
+src/problems/problem-*/problem-*.js
+
 # Logs
 logs
 *.log
