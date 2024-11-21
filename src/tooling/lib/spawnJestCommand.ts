@@ -6,7 +6,7 @@ export const spawnJestCommand = async (
   const testPath = `src/problems/problem-${problemNumber}/problem-${problemNumber}.test.ts`
 
   return await new Promise((resolve, reject) => {
-    spawn('yarn', ['jest', '--color', testPath], {
+    spawn('yarn', ['jest', testPath], {
       stdio: 'inherit',
       shell: true
     }).on('close', (code) => {

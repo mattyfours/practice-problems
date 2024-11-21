@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "nodemon --exec 'yarn start'",
     "start": "yarn build && node dist/tooling/scripts/start.js",
+    "test": "yarn build && node dist/tooling/scripts/test.js",
     "build": "rm -rf dist && node esBuild.mjs"
   },
   "dependencies": {
