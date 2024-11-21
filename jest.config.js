@@ -5,5 +5,6 @@ module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest'
   },
-  testMatch: ['**/?(*.)+(spec|test).ts']
+  testMatch: ['**/?(*.)+(spec|test).ts'],
+  testPathIgnorePatterns: ['/node_modules/', '/src/tooling/']
 }

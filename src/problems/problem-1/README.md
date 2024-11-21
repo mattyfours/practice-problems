@@ -1,7 +1,6 @@
 ```
-  export default function (): any {
-    console.log('Problem 1')
+  export default function (userIds: string[]): string[] {
 
-    return 4
+    return []
   }
 ```

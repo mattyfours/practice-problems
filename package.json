@@ -8,6 +8,7 @@
     "dev": "nodemon --exec 'yarn start'",
     "start": "yarn build && node dist/tooling/scripts/start.js",
     "test": "yarn build && node dist/tooling/scripts/test.js",
+    "test-all": "yarn build && yarn jest",
     "build": "rm -rf dist && node esBuild.mjs"
   },
   "dependencies": {
