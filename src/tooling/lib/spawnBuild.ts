@@ -2,8 +2,8 @@ import { spawn } from 'child_process'
 
 export const spawnBuild = async (): Promise<number> => {
   return await new Promise((resolve, reject) => {
-    spawn('yarn', ['build'], {
-      stdio: 'inherit',
+    spawn('yarn', ['build-and-format'], {
+      stdio: 'ignore',
       shell: true
     }).on('close', (code) => {
       if (code !== 0) {

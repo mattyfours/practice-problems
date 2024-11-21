@@ -6,17 +6,18 @@ const filteredEntryPoints = [
   ...(glob.sync('src/problems/**/*.{ts,js}') || [])
 ].filter((entry) => !entry.includes('.test.'))
 
-esbuild.build({
-  entryPoints: filteredEntryPoints,
-  bundle: true,
-  outdir: 'dist',
-  outbase: 'src',
-  platform: 'node',
-  target: 'node14',
-  external: ['express'],
-  entryNames: '[dir]/[name]',
-  format: 'cjs'
-})
+esbuild
+  .build({
+    entryPoints: filteredEntryPoints,
+    bundle: true,
+    outdir: 'dist',
+    outbase: 'src',
+    platform: 'node',
+    target: 'node14',
+    external: ['express'],
+    entryNames: '[dir]/[name]',
+    format: 'cjs'
+  })
   .then(() => {
     console.log('---')
   })

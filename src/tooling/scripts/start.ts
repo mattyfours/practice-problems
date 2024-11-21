@@ -5,7 +5,6 @@ import { checkAndBuildProblemFile } from '../lib/checkAndBuildProblemFile'
 import path from 'path'
 
 dotenv.config()
-
 ;(async () => {
   try {
     const args = minimist(process.argv.slice(2))
@@ -28,7 +27,7 @@ dotenv.config()
 
     await problemModule.default?.default()
 
-    const runTest: boolean = (typeof args.t !== 'undefined')
+    const runTest: boolean = typeof args.t !== 'undefined'
     if (runTest) {
       await spawnJestCommand(problemNumber)
     }
@@ -37,7 +36,7 @@ dotenv.config()
   } finally {
     process.exit(0)
   }
-})().catch(error => {
+})().catch((error) => {
   console.error('Unhandled error:', error)
   process.exit(1)
 })

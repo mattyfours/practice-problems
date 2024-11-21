@@ -1,9 +1,9 @@
 import dotenv from 'dotenv'
 import minimist from 'minimist'
 import { spawnJestCommand } from '../lib/spawnJestCommand'
+import { checkAndBuildProblemFile } from '../lib/checkAndBuildProblemFile'
 
 dotenv.config()
-
 ;(async () => {
   try {
     const args = minimist(process.argv.slice(2))
@@ -12,13 +12,14 @@ dotenv.config()
       throw new Error('Problem number is required: -p <problem number>')
     }
 
+    await checkAndBuildProblemFile(problemNumber, true)
     await spawnJestCommand(problemNumber)
   } catch (error) {
     console.error(error)
   } finally {
     process.exit(0)
   }
-})().catch(error => {
+})().catch((error) => {
   console.error('Unhandled error:', error)
   process.exit(1)
 })

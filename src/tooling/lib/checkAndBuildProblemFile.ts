@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { defaultProblemFunctionString } from '../helpers/defaultProblemFunctionString'
-import { spawnFormatFileWithTsStandard } from './spawnFormatFileWithTsStandard'
 import { spawnBuild } from './spawnBuild'
+import { spawnFormat } from './spawnFormat'
 
 export const checkAndBuildProblemFile = async (
   problemNumber: string | number,
@@ -26,20 +26,14 @@ export const checkAndBuildProblemFile = async (
   await fs.ensureFile(problemReadmeFilePath)
   const readMeContent = fs.readFileSync(problemReadmeFilePath, 'utf-8')
 
-  const defaultProblemContent: string = readMeContent
-    .split('```')
-    .find(
-      (partialContent: string) => partialContent.includes('export default function')
-    ) ?? defaultProblemFunctionString
+  const defaultProblemContent: string =
+    readMeContent
+      .split('```')
+      .find((partialContent: string) =>
+        partialContent.includes('export default function')
+      ) ?? defaultProblemFunctionString
 
-  fs.writeFileSync(
-    problemFilePath,
-    defaultProblemContent
-  )
-
-  await spawnFormatFileWithTsStandard(
-    problemFilePath.trim().replace(/[\r\n]+/g, '')
-  )
+  fs.writeFileSync(problemFilePath, defaultProblemContent)
 
   if (buildAfterCreate) {
     await spawnBuild()
