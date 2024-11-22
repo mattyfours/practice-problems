@@ -29,8 +29,10 @@ export const checkAndBuildProblemFile = async (
   const defaultProblemContent: string =
     readMeContent
       .split('```')
-      .find((partialContent: string) =>
-        partialContent.includes('export default function')
+      .find(
+        (partialContent: string) =>
+          partialContent.includes('export default function') ||
+          partialContent.includes('export default async function')
       ) ?? defaultProblemFunctionString
 
   fs.writeFileSync(problemFilePath, defaultProblemContent)

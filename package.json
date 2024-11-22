@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "nodemon --exec 'yarn start'",
     "start": "yarn build && node dist/tooling/scripts/start.js",
-    "test": "yarn build && node dist/tooling/scripts/test.js",
     "test-all": "yarn build && yarn jest",
     "build": "rm -rf dist && node esBuild.mjs",
     "format": "mv .gitignore .gitignore_temp && prettier --write . && mv .gitignore_temp .gitignore",
@@ -22,7 +21,6 @@
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.14",
     "@types/node": "^20.11.16",
-    "detect-indent": "^7.0.1",
     "dotenv": "^16.4.5",
     "esbuild": "0.20.0",
     "esm": "^3.2.25",
