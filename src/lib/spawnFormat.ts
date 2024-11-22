@@ -1,8 +1,8 @@
 import { spawn } from 'child_process'
 
-export const spawnBuild = async (): Promise<number> => {
+export const spawnFormat = async (): Promise<number> => {
   return await new Promise((resolve, reject) => {
-    spawn('yarn', ['build-and-format'], {
+    spawn('yarn', ['format'], {
       stdio: 'ignore',
       shell: true
     }).on('close', (code) => {

@@ -4,7 +4,7 @@ export const spawnJestCommand = async (
   problemNumber: string | number,
   testName: string | null
 ): Promise<number> => {
-  const testPath = `src/problems/problem-${problemNumber}/problem-${problemNumber}.test.ts`
+  const testPath = `./problems/problem-${problemNumber}/problem-${problemNumber}.test.ts`
 
   const testFlag = testName ? ['-t', testName] : []
 

@@ -1,6 +1,6 @@
-src/problems/problem-*/problem-*.ts
-src/problems/problem-*/problem-*.js
-!src/problems/problem-*/problem-*.test.ts
+problems/problem-*/problem-*.ts
+problems/problem-*/problem-*.js
+!problems/problem-*/problem-*.test.ts
 
 # Logs
 logs

@@ -6,5 +6,5 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest'
   },
   testMatch: ['**/?(*.)+(spec|test).ts'],
-  testPathIgnorePatterns: ['/node_modules/', '/src/tooling/']
+  testPathIgnorePatterns: ['/node_modules/', '/src/']
 }

@@ -14,13 +14,13 @@ dotenv.config()
 
   const problemFilePath = path.resolve(
     process.cwd(),
-    `dist/problems/problem-${problemNumber}/problem-${problemNumber}.js`
+    `problems/problem-${problemNumber}/problem-${problemNumber}.ts`
   )
 
   await checkAndBuildProblemFile(problemNumber, true)
 
   const problemModule = await import(problemFilePath)
-  if (typeof problemModule.default?.default !== 'function') {
+  if (typeof problemModule?.default !== 'function') {
     throw new Error(`Problem ${problemNumber} not found`)
   }
 

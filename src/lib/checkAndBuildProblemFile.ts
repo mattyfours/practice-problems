@@ -1,7 +1,6 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { defaultProblemFunctionString } from '../helpers/defaultProblemFunctionString'
-import { spawnBuild } from './spawnBuild'
 import { spawnFormat } from './spawnFormat'
 
 export const checkAndBuildProblemFile = async (
@@ -10,12 +9,12 @@ export const checkAndBuildProblemFile = async (
 ): Promise<string> => {
   const problemFilePath = path.resolve(
     process.cwd(),
-    `src/problems/problem-${problemNumber}/problem-${problemNumber}.ts`
+    `problems/problem-${problemNumber}/problem-${problemNumber}.ts`
   )
 
   const problemReadmeFilePath = path.resolve(
     process.cwd(),
-    `src/problems/problem-${problemNumber}/README.md`
+    `problems/problem-${problemNumber}/README.md`
   )
 
   const problemFileExist = await fs.exists(problemFilePath)
@@ -38,7 +37,7 @@ export const checkAndBuildProblemFile = async (
   fs.writeFileSync(problemFilePath, defaultProblemContent)
 
   if (buildAfterCreate) {
-    await spawnBuild()
+    await spawnFormat()
   }
 
   return problemFilePath
