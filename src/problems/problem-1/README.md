@@ -1,7 +1,7 @@
 ### Description
 
 - Use the `customerApi` function to receive customer data
-- Return an array of customer names sorted by total spending
+- Return an array of customer ids sorted by total spending
 
 ### Starting Point
 
