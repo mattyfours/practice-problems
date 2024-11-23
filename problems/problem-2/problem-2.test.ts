@@ -1,4 +1,4 @@
-import problem from './problem-1'
+import problem from './problem-2'
 
 test('a', async () => {
   expect(await problem(['HHD234', 'JHD890', 'IHD567'])).toEqual([
