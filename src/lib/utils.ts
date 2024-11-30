@@ -1,4 +1,4 @@
-import { JSDOM } from 'jsdom'
+import {} from 'jsdom'
 
 export const pause = (waitTime: number) =>
   new Promise((resolve) => setTimeout(resolve, waitTime))
@@ -36,20 +36,3 @@ export const triggerEvent = (
       reject(error)
     }
   })
-
-// export const createDom = (htmlString: string) => {
-//   const dom = new JSDOM(htmlString)
-//   const window = dom.window
-//   const document = dom.window.document
-//   const body = document.body
-//   const Event = dom.window.Event
-
-//
-
-//   return {
-//     dom,
-//     body,
-//     triggerEvent,
-//     ...window
-//   }
-// }
