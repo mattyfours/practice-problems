@@ -1,4 +1,8 @@
 {
-  "recommendations": ["bierner.lit-html", "GraphQL.vscode-graphql-syntax"],
+  "recommendations": [
+    "bierner.lit-html",
+    "GraphQL.vscode-graphql-syntax",
+    "sissel.shopify-liquid"
+  ],
   "unwantedRecommendations": []
 }
