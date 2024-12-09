@@ -15,7 +15,7 @@ export const spawnJestCommand = async (
     }).on('close', (code) => {
       if (code !== 0) {
         console.error(`Jest exited with code ${code ?? 'unknown'}`)
-        resolve(code ?? 0)
+        reject(code ?? 0)
         return
       }
       resolve(code)

@@ -1,9 +1,10 @@
 import {} from 'jsdom'
 
+export const html = String.raw
+export const gql = String.raw
+
 export const pause = (waitTime: number) =>
   new Promise((resolve) => setTimeout(resolve, waitTime))
-
-export const html = String.raw
 
 export const setDomBody = (htmlString: string): HTMLBodyElement => {
   document.body.innerHTML = htmlString

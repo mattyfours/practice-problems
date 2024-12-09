@@ -1,4 +1,4 @@
 {
-  "recommendations": ["bierner.lit-html"],
+  "recommendations": ["bierner.lit-html", "GraphQL.vscode-graphql-syntax"],
   "unwantedRecommendations": []
 }
