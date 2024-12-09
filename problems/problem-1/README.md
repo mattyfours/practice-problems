@@ -1,7 +1,8 @@
 ### Description
 
-- Use the `customerApi` function to receive customer data
-- Return an array of customer ids sorted by total spending
+- Use the `customerApi` function to receive customer data.
+- Return an array of customer IDs sorted by total spending.
+- Do not include customer IDs in the array if they are invalid.
 
 ### Starting Point
 
@@ -12,3 +13,8 @@ export default async function (userIds: string[]): Promise<string[]> {
   return []
 }
 ```
+
+### Test Names
+
+- `a`
+- `b`

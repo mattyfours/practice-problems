@@ -1,8 +1,8 @@
 ### Description
 
-- A submit form event is created that have multiple number input fields
-- Use the event data to grab the sum of all the inputed ages
-- Do not use duplicate ages if the age exists more than once
+- A submit form event is created that has multiple number input fields.
+- Use the event data to grab the sum of all the inputed ages.
+- If a age is inputed multiple times, only the first input should count towards the total.
 
 Example Form HTML:
 
@@ -27,3 +27,8 @@ export default async function (event: Event): Promise<number> {
   return 0
 }
 ```
+
+### Test Names
+
+- `a`
+- `b`
