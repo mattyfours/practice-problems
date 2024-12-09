@@ -12,6 +12,16 @@
 ### Commands
 
 - `yarn start`
-  - `-p <PROBLEM_NUMBER>` (Required)
-  - `-t <TEST_NAME>`
+  - `-p <PROBLEM_NUMBER>` (Required) : Problem numbers match the number in the problems directory
+  - `-t <TEST_NAME>` : Test names can be found in a problem README or test file
 - `yarn format`
+
+### Notes
+
+- Copilot is disabled by default. To enable it, update the following in `.vscode/settings.json`
+
+```
+"github.copilot.enable": {
+  "*": false <-- true to enable | false to disabel
+}
+```
