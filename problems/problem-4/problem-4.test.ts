@@ -7,17 +7,17 @@ const cleanHtmlString = (htmlString: string) => htmlString.replace(/\s| /g, '')
 
 test('a', async () => {
   const expectedHtml = html`
-    <h1>Heading A</h1>
+    <h2>Heading A</h2>
     <ul>
       <li>Info item A 1</li>
       <li>Info item A 2</li>
       <li>Info item A 3</li>
     </ul>
-    <h1>Heading B</h1>
+    <h2>Heading B</h2>
     <ul>
       <li>Info item B 1</li>
     </ul>
-    <h1>Heading C</h1>
+    <h2>Heading C</h2>
     <ul>
       <li>Info item C 1</li>
       <li>Info item C 2</li>
@@ -34,17 +34,17 @@ test('a', async () => {
 
 test('b', async () => {
   const expectedHtml = html`
-    <h1>Heading A</h1>
+    <h2>Heading A</h2>
     <ul>
       <li>Info item A 1</li>
       <li>Info item A 2</li>
       <li>Info item A 3</li>
     </ul>
-    <h1>Heading B</h1>
+    <h2>Heading B</h2>
     <ul>
       <li>Info item B 1</li>
     </ul>
-    <h1>Heading D</h1>
+    <h2>Heading D</h2>
     <ul>
       <li>Info item D 1</li>
       <li>Info item D 2</li>
