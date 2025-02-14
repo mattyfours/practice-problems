@@ -11,6 +11,7 @@
     "format": "mv .gitignore .gitignore_temp && prettier --write . && mv .gitignore_temp .gitignore"
   },
   "dependencies": {
+    "@types/minimist": "^1.2.5",
     "axios": "^1.4.0",
     "jsdom": "^25.0.1",
     "liquidjs": "^10.19.0",
