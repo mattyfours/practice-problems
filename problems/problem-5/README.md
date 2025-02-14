@@ -6,6 +6,11 @@
 - Format will use commas for longer numbers
 - Format will display 0.XX for values less than $1
 - Format will include dollor sign
+- Filter will only accept full cents, no decimals
+- Filter should accept string inputs
+- Filter should accept negative number inputs
+- Negative numbers wil be formatted as `-$XX.XX`
+- Invalid inputs will return a value of `INVALID INPUT`
 
 ### Starting Point
 
